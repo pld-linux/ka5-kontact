@@ -91,7 +91,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/48x48/apps/kontact.png
 %{_iconsdir}/hicolor/64x64/apps/kontact.png
 %{_iconsdir}/hicolor/scalable/apps/kontact.svg
-%{_datadir}/kconf_update/kontact-15.08-kickoff.sh
+%attr(755,root,root) %{_datadir}/kconf_update/kontact-15.08-kickoff.sh
 %{_datadir}/kconf_update/kontact.upd
 %{_datadir}/kservices5/kontactconfig.desktop
 %{_datadir}/messageviewer/about/default/introduction_kontact.html
