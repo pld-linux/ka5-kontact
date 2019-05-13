@@ -1,14 +1,15 @@
-%define		kdeappsver	18.12.1
+%define		kdeappsver	19.04.1
+%define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		kontact
 Summary:	kontact
 Name:		ka5-%{kaname}
-Version:	18.12.1
+Version:	19.04.1
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	http://download.kde.org/stable/applications/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	d67b762bd70590b413c602a8d8f88716
+# Source0-md5:	553af480ada02878bd871981bea2b014
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel
@@ -29,13 +30,13 @@ BuildRequires:	ka5-kdepim-apps-libs-devel >= %{kdeappsver}
 BuildRequires:	ka5-kontactinterface-devel >= %{kdeappsver}
 BuildRequires:	ka5-kpimtextedit-devel >= %{kdeappsver}
 BuildRequires:	ka5-libkdepim-devel >= %{kdeappsver}
-BuildRequires:	kf5-extra-cmake-modules >= 5.51.0
-BuildRequires:	kf5-kcmutils-devel >= 5.51.0
-BuildRequires:	kf5-kcrash-devel >= 5.51.0
-BuildRequires:	kf5-kdbusaddons-devel >= 5.51.0
-BuildRequires:	kf5-kdoctools-devel >= 5.51.0
-BuildRequires:	kf5-kiconthemes-devel >= 5.51.0
-BuildRequires:	kf5-kwindowsystem-devel >= 5.51.0
+BuildRequires:	kf5-extra-cmake-modules >= %{kframever}
+BuildRequires:	kf5-kcmutils-devel >= %{kframever}
+BuildRequires:	kf5-kcrash-devel >= %{kframever}
+BuildRequires:	kf5-kdbusaddons-devel >= %{kframever}
+BuildRequires:	kf5-kdoctools-devel >= %{kframever}
+BuildRequires:	kf5-kiconthemes-devel >= %{kframever}
+BuildRequires:	kf5-kwindowsystem-devel >= %{kframever}
 BuildRequires:	ninja
 BuildRequires:	qt5-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
@@ -59,6 +60,7 @@ install -d build
 cd build
 %cmake \
 	-G Ninja \
+	-DHTML_INSTALL_DIR=%{_kdedocdir} \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	..
 %ninja_build
