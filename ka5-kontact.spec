@@ -1,15 +1,15 @@
-%define		kdeappsver	19.04.1
+%define		kdeappsver	20.12.3
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		kontact
 Summary:	kontact
 Name:		ka5-%{kaname}
-Version:	19.04.1
+Version:	20.12.3
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
-Source0:	http://download.kde.org/stable/applications/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	553af480ada02878bd871981bea2b014
+Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	f3aaf18f380fbb555ec68926f90fe08e
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel
@@ -26,7 +26,6 @@ BuildRequires:	cmake >= 2.8.12
 BuildRequires:	gettext-devel
 BuildRequires:	ka5-akonadi-devel >= %{kdeappsver}
 BuildRequires:	ka5-grantleetheme-devel >= %{kdeappsver}
-BuildRequires:	ka5-kdepim-apps-libs-devel >= %{kdeappsver}
 BuildRequires:	ka5-kontactinterface-devel >= %{kdeappsver}
 BuildRequires:	ka5-kpimtextedit-devel >= %{kdeappsver}
 BuildRequires:	ka5-libkdepim-devel >= %{kdeappsver}
@@ -79,8 +78,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
-/etc/xdg/kontact.categories
-/etc/xdg/kontact.renamecategories
 %attr(755,root,root) %{_bindir}/kontact
 %attr(755,root,root) %ghost %{_libdir}/libkontactprivate.so.5
 %attr(755,root,root) %{_libdir}/libkontactprivate.so.5.*.*
@@ -100,3 +97,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/messageviewer/about/default/introduction_kontact.html
 %{_datadir}/messageviewer/about/default/loading_kontact.html
 %{_datadir}/metainfo/org.kde.kontact.appdata.xml
+%{_datadir}/dbus-1/services/org.kde.kontact.service
+%{_datadir}/qlogging-categories5/kontact.categories
+%{_datadir}/qlogging-categories5/kontact.renamecategories
