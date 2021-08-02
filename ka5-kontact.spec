@@ -51,6 +51,13 @@ KMail, KOrganizer and KAddressBook into a single interface to provide
 easy access to mail, scheduling, address book and other PIM
 functionality.
 
+%description -l pl.UTF-8
+Kontact jest zintegrowanym rozwiązaniem do zarządzania informacją
+osobistą (PIM). W jego skład wchodzą dobrze znane aplikacje KDE, takie
+jak KMail, KOrganizer i KAddressBook. Mają ujednolicony interfejs
+i dają łatwy dostęp do poczty, listy zadań, książki adresowej i innych
+funkcjonalności PIM.
+
 %prep
 %setup -q -n %{kaname}-%{version}
 
