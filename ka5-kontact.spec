@@ -1,15 +1,15 @@
-%define		kdeappsver	21.08.3
+%define		kdeappsver	21.12.0
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		kontact
 Summary:	kontact
 Name:		ka5-%{kaname}
-Version:	21.08.3
+Version:	21.12.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	9f20378db15d9d2cb74d1d5b29074f0c
+# Source0-md5:	78af0700b7949339850ea06d3a2dd4ee
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel
@@ -54,8 +54,8 @@ functionality.
 %description -l pl.UTF-8
 Kontact jest zintegrowanym rozwiązaniem do zarządzania informacją
 osobistą (PIM). W jego skład wchodzą dobrze znane aplikacje KDE, takie
-jak KMail, KOrganizer i KAddressBook. Mają ujednolicony interfejs
-i dają łatwy dostęp do poczty, listy zadań, książki adresowej i innych
+jak KMail, KOrganizer i KAddressBook. Mają ujednolicony interfejs i
+dają łatwy dostęp do poczty, listy zadań, książki adresowej i innych
 funkcjonalności PIM.
 
 %prep
@@ -88,7 +88,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kontact
 %ghost %{_libdir}/libkontactprivate.so.5
 %attr(755,root,root) %{_libdir}/libkontactprivate.so.*.*.*
-%attr(755,root,root) %{_libdir}/qt5/plugins/kcm_kontact.so
+%dir %{_libdir}/qt5/plugins/pim/kcms/kontact
+%attr(755,root,root) %{_libdir}/qt5/plugins/pim/kcms/kontact/kcm_kontact.so
 %{_desktopdir}/org.kde.kontact.desktop
 %{_datadir}/config.kcfg/kontact.kcfg
 %{_iconsdir}/hicolor/128x128/apps/kontact.png
@@ -98,8 +99,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/48x48/apps/kontact.png
 %{_iconsdir}/hicolor/64x64/apps/kontact.png
 %{_iconsdir}/hicolor/scalable/apps/kontact.svg
-%attr(755,root,root) %{_datadir}/kconf_update/kontact-15.08-kickoff.sh
-%{_datadir}/kconf_update/kontact.upd
 %{_datadir}/kservices5/kontactconfig.desktop
 %{_datadir}/messageviewer/about/default/introduction_kontact.html
 %{_datadir}/messageviewer/about/default/loading_kontact.html
