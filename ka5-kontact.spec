@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	22.04.3
+%define		kdeappsver	22.08.0
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		kontact
 Summary:	kontact
 Name:		ka5-%{kaname}
-Version:	22.04.3
+Version:	22.08.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	61b49cd7710c0bb3ef29e85d8f1d6553
+# Source0-md5:	a60cf577947003d843739ba08b113bc5
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel
@@ -57,10 +57,10 @@ functionality.
 
 %description -l pl.UTF-8
 Kontact jest zintegrowanym rozwiązaniem do zarządzania informacją
-osobistą (PIM). W jego skład wchodzą dobrze znane aplikacje KDE, takie
-jak KMail, KOrganizer i KAddressBook. Mają ujednolicony interfejs i
-dają łatwy dostęp do poczty, listy zadań, książki adresowej i innych
-funkcjonalności PIM.
+osobistą (PIM). W jego skład wchodzą dobrze znane aplikacje KDE,
+takie jak KMail, KOrganizer i KAddressBook. Mają ujednolicony
+interfejs i dają łatwy dostęp do poczty, listy zadań, książki
+adresowej i innych funkcjonalności PIM.
 
 %prep
 %setup -q -n %{kaname}-%{version}
@@ -98,8 +98,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kontact
 %ghost %{_libdir}/libkontactprivate.so.5
 %attr(755,root,root) %{_libdir}/libkontactprivate.so.*.*.*
-%dir %{_libdir}/qt5/plugins/pim/kcms/kontact
-%attr(755,root,root) %{_libdir}/qt5/plugins/pim/kcms/kontact/kcm_kontact.so
 %{_desktopdir}/org.kde.kontact.desktop
 %{_datadir}/config.kcfg/kontact.kcfg
 %{_iconsdir}/hicolor/128x128/apps/kontact.png
@@ -109,10 +107,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/48x48/apps/kontact.png
 %{_iconsdir}/hicolor/64x64/apps/kontact.png
 %{_iconsdir}/hicolor/scalable/apps/kontact.svg
-%{_datadir}/kservices5/kontactconfig.desktop
 %{_datadir}/messageviewer/about/default/introduction_kontact.html
 %{_datadir}/messageviewer/about/default/loading_kontact.html
 %{_datadir}/metainfo/org.kde.kontact.appdata.xml
 %{_datadir}/dbus-1/services/org.kde.kontact.service
 %{_datadir}/qlogging-categories5/kontact.categories
 %{_datadir}/qlogging-categories5/kontact.renamecategories
+%dir %{_libdir}/qt5/plugins/pim5/kcms/kontact
+%{_libdir}/qt5/plugins/pim5/kcms/kontact/kcm_kontact.so
