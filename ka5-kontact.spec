@@ -1,30 +1,30 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	24.01.95
+%define		kdeappsver	23.08.4
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		kontact
 Summary:	kontact
 Name:		ka5-%{kaname}
-Version:	24.01.95
-Release:	0.1
+Version:	23.08.4
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
-Source0:	https://download.kde.org/unstable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	42b5dd77c697e09ac250c84d9e6a4688
+Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	3e11d31d7849861fa4c9963b1ab95d67
 URL:		http://www.kde.org/
-BuildRequires:	Qt6Core-devel >= %{qtver}
-BuildRequires:	Qt6DBus-devel
-BuildRequires:	Qt6Gui-devel >= 5.11.1
-BuildRequires:	Qt6Network-devel >= 5.11.1
-BuildRequires:	Qt6Positioning-devel >= 5.11.1
-BuildRequires:	Qt6PrintSupport-devel >= 5.11.1
-BuildRequires:	Qt6Qml-devel >= 5.11.1
-BuildRequires:	Qt6Quick-devel >= 5.11.1
-BuildRequires:	Qt6WebChannel-devel >= 5.11.1
-BuildRequires:	Qt6WebEngine-devel
-BuildRequires:	Qt6Widgets-devel
+BuildRequires:	Qt5Core-devel >= %{qtver}
+BuildRequires:	Qt5DBus-devel
+BuildRequires:	Qt5Gui-devel >= 5.11.1
+BuildRequires:	Qt5Network-devel >= 5.11.1
+BuildRequires:	Qt5Positioning-devel >= 5.11.1
+BuildRequires:	Qt5PrintSupport-devel >= 5.11.1
+BuildRequires:	Qt5Qml-devel >= 5.11.1
+BuildRequires:	Qt5Quick-devel >= 5.11.1
+BuildRequires:	Qt5WebChannel-devel >= 5.11.1
+BuildRequires:	Qt5WebEngine-devel
+BuildRequires:	Qt5Widgets-devel
 BuildRequires:	cmake >= 3.20
 BuildRequires:	gettext-devel
 BuildRequires:	ka5-akonadi-devel >= %{kdeappsver}
@@ -32,15 +32,15 @@ BuildRequires:	ka5-grantleetheme-devel >= %{kdeappsver}
 BuildRequires:	ka5-kontactinterface-devel >= %{kdeappsver}
 BuildRequires:	ka5-kpimtextedit-devel >= %{kdeappsver}
 BuildRequires:	ka5-libkdepim-devel >= %{kdeappsver}
-BuildRequires:	kf6-extra-cmake-modules >= %{kframever}
-BuildRequires:	kf6-kcmutils-devel >= %{kframever}
-BuildRequires:	kf6-kcrash-devel >= %{kframever}
-BuildRequires:	kf6-kdbusaddons-devel >= %{kframever}
-BuildRequires:	kf6-kdoctools-devel >= %{kframever}
-BuildRequires:	kf6-kiconthemes-devel >= %{kframever}
-BuildRequires:	kf6-kwindowsystem-devel >= %{kframever}
+BuildRequires:	kf5-extra-cmake-modules >= %{kframever}
+BuildRequires:	kf5-kcmutils-devel >= %{kframever}
+BuildRequires:	kf5-kcrash-devel >= %{kframever}
+BuildRequires:	kf5-kdbusaddons-devel >= %{kframever}
+BuildRequires:	kf5-kdoctools-devel >= %{kframever}
+BuildRequires:	kf5-kiconthemes-devel >= %{kframever}
+BuildRequires:	kf5-kwindowsystem-devel >= %{kframever}
 BuildRequires:	ninja
-BuildRequires:	qt6-build >= %{qtver}
+BuildRequires:	qt5-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	shared-mime-info
 BuildRequires:	tar >= 1:1.22
@@ -94,17 +94,22 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kontact
-%ghost %{_libdir}/libkontactprivate.so.6
-%attr(755,root,root) %{_libdir}/libkontactprivate.so.*.*
+%ghost %{_libdir}/libkontactprivate.so.5
+%attr(755,root,root) %{_libdir}/libkontactprivate.so.*.*.*
 %{_desktopdir}/org.kde.kontact.desktop
 %{_datadir}/config.kcfg/kontact.kcfg
-%{_iconsdir}/hicolor/*x*/apps/kontact.png
+%{_iconsdir}/hicolor/128x128/apps/kontact.png
+%{_iconsdir}/hicolor/16x16/apps/kontact.png
+%{_iconsdir}/hicolor/22x22/apps/kontact.png
+%{_iconsdir}/hicolor/32x32/apps/kontact.png
+%{_iconsdir}/hicolor/48x48/apps/kontact.png
+%{_iconsdir}/hicolor/64x64/apps/kontact.png
 %{_iconsdir}/hicolor/scalable/apps/kontact.svg
 %{_datadir}/messageviewer/about/default/introduction_kontact.html
 %{_datadir}/messageviewer/about/default/loading_kontact.html
 %{_datadir}/metainfo/org.kde.kontact.appdata.xml
 %{_datadir}/dbus-1/services/org.kde.kontact.service
-%{_datadir}/qlogging-categories6/kontact.categories
-%{_datadir}/qlogging-categories6/kontact.renamecategories
-%dir %{_libdir}/qt6/plugins/pim6/kcms/kontact
-%{_libdir}/qt6/plugins/pim6/kcms/kontact/kcm_kontact.so
+%{_datadir}/qlogging-categories5/kontact.categories
+%{_datadir}/qlogging-categories5/kontact.renamecategories
+%dir %{_libdir}/qt5/plugins/pim5/kcms/kontact
+%{_libdir}/qt5/plugins/pim5/kcms/kontact/kcm_kontact.so
